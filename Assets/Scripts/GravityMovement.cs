@@ -8,10 +8,8 @@ public class GravityMovement : MonoBehaviour
 	public float DirectionDampTime = .25f;
 	public bool ApplyGravity = false;
 	
-	// Turning
-	float targetTurn = 180.0f;
-	bool doTurn = false;
-	Quaternion targetRotation;
+	// Turning around from idle
+	private const float IDLE_THRESHOLD = 0.1f;
 
 	// Use this for initialization
 	void Start () 
@@ -27,45 +25,68 @@ public class GravityMovement : MonoBehaviour
 	{
 		if (animator)
 		{
-			// Turning
-			animator.SetBool("Turn", doTurn);
-			animator.SetFloat("TurnDirection", targetTurn);
-			
 			AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);			
 
 			if (stateInfo.IsName("Base Layer.Run"))
 			{
-				if (Input.GetButton("Fire1")) animator.SetBool("Jump", true);                
+				if (Input.GetButton("Fire1")) animator.SetBool("Jump", true);                 
             }
 			else
 			{
-				animator.SetBool("Jump", false);                
+				animator.SetBool("Jump", false);            
             }
-
-			if(Input.GetButtonDown("Fire2") && animator.layerCount >= 2)
+			
+			if (stateInfo.IsName("Base Layer.Idle"))
 			{
-				animator.SetBool("Hi", !animator.GetBool("Hi"));
+				if (Input.GetButton("Fire1")) animator.SetBool("IdleJump", true);    
+			}
+			else
+			{
+				animator.SetBool("IdleJump", false);     				
 			}
 			
 			// Pull values from controller/keyboard
       		float h = Input.GetAxis("Horizontal");
         	float v = Input.GetAxis("Vertical");
-			Debug.Log("v: " + v + " h: " + h, this);
+//			Debug.Log("v: " + v + " h: " + h, this);
 			
-			// Turn around
-//			if (v < 0)
-//			{
-//				Debug.Log("Turning", this);
-//				targetRotation = transform.rotation * Quaternion.AngleAxis(targetTurn, Vector3.up); // Compute target rotation when doTurn is triggered
-////				doTurn = false;
-//			}
-//			else if (animator.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.Turn"))
-//			{
-//				// calls MatchTarget when in Turn state, subsequent calls are ignored until targetTime (0.9f) is reached .
-//				animator.MatchTarget(Vector3.one, targetRotation, AvatarTarget.Root, new MatchTargetWeightMask(Vector3.zero, 1), animator.GetCurrentAnimatorStateInfo(0).normalizedTime, 0.9f);			
-//			}
+			float speed = h * h + v * v;
+						
+//			Debug.Log("Running? " + stateInfo.IsName("Base Layer.Run"));
+			// Turn around from idle
+			if (v < 0)// && speed < IDLE_THRESHOLD)
+			{
+				float angle = Mathf.Atan2(h, v) * Mathf.Rad2Deg;
+				
+				// Normalize values so that they span from 0 (turn 90 deg right) to 180 (turn 90 deg left)
+				if (angle < 0)
+				{
+					// -90 (turn 90 deg left) will become 180 and -180 (turn 180 deg left) will become 90
+					angle += 270;
+				}
+				else
+				{
+					// 90 (turn 90 deg right) will become 0 and 180 (turn 180 deg right) will become 90
+					angle -= 90;
+				}
+				
+				// Clamp any values between full left and full right spin
+				if (angle > 90 && angle < 91)
+				{
+					angle = 90;
+				}
+				
+//				Debug.Log("Turning " + angle, this);
+				animator.SetFloat("IdleTurnDirection", angle);
+				animator.SetBool("IdleTurn", true);
+			}
+			else
+			{
+				animator.SetBool("IdleTurn", false);        
+			}
 			
-			animator.SetFloat("Speed", h*h+v*v);
+			
+			animator.SetFloat("Speed", speed);
             animator.SetFloat("Direction", h, DirectionDampTime, Time.deltaTime);	
 		}   		  
 	}
