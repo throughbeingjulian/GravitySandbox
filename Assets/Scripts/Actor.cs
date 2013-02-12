@@ -15,18 +15,18 @@ public class Actor : MonoBehaviour
 
 	// Use this for initialization
 	void Start() 
-	{			
-		PLANET_GRAVITY = false;
-		
+	{					
 		// TODO: Generalize this later when we implement multiple planets; grabs first (not nearest) planetoid
 		if (gravInfluence == null)
 		{
 			gravInfluence = (Planetoid) GameObject.FindObjectOfType(typeof(Planetoid));
 			// if planetoid has been found
-			if (gravInfluence != null) {
+			if (gravInfluence != null) 
+			{
 				PLANET_GRAVITY = true;
 			}
 		}		
+		
 		if (baseJoint == null)
 		{
 			Debug.LogError("No base joint to found; can't calculate planetoid gravity without some reference for the " +
@@ -39,7 +39,8 @@ public class Actor : MonoBehaviour
 	{
 		RaycastHit rayHit = new RaycastHit();
 		
-		if(PLANET_GRAVITY){
+		if(PLANET_GRAVITY)
+		{
 			Physics.Linecast(this.baseJoint.position, gravInfluence.transform.position, out rayHit);
 			Debug.DrawLine(this.baseJoint.position, gravInfluence.transform.position, Color.red, 0.5f);
 					
