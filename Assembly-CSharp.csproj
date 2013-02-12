@@ -59,6 +59,7 @@
      <Compile Include="Assets\Packages\Standard Assets\Image Effects (Pro Only)\TwirlEffect.cs" />
      <Compile Include="Assets\Packages\Standard Assets\Image Effects (Pro Only)\VortexEffect.cs" />
      <Compile Include="Assets\Scripts\Actor.cs" />
+     <Compile Include="Assets\Scripts\FollowCameraGalaxy.cs" />
      <Compile Include="Assets\Scripts\GravityMovement.cs" />
      <Compile Include="Assets\Scripts\InvertibleCamera.cs" />
      <Compile Include="Assets\Scripts\Planetoid.cs" />

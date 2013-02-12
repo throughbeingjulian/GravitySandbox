@@ -1,0 +1,39 @@
+# Customized Unity .gitignore file.
+# By jm991 and throughbeingjulian
+
+############
+## Unity
+############
+
+# Ignore Library folder; using meta files instead
+# See 
+Library
+Library/*
+*.csproj
+*.sln
+*.userprefs
+Temp
+*.pidb
+Build
+
+
+############
+## Windows
+############
+
+# Windows image file caches
+Thumbs.db
+
+# Folder config file
+Desktop.ini
+
+
+#############
+## Mac
+#############
+
+#Mr Developer
+.mr.developer.cfg
+
+# Mac crap
+.DS_Store
