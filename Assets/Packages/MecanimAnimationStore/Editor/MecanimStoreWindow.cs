@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEditor;
 using Mixamo.UnityStore;
 
-public class MixamoStoreWindow : EditorWindow
+public class MecanimStoreWindow : EditorWindow
 {
 	System.DateTime lastOnGUITime = System.DateTime.Now;
 	
@@ -21,10 +21,10 @@ public class MixamoStoreWindow : EditorWindow
 		}
 	}
 	
-	[MenuItem ("Window/Mixamo Store #%1")]
+	[MenuItem ("Window/Mecanim Store #%1")]
 	static void Init()
 	{
-		MixamoStoreWindow window = (MixamoStoreWindow) EditorWindow.GetWindow(typeof(MixamoStoreWindow), false, "Mixamo Store");
+		MecanimStoreWindow window = (MecanimStoreWindow) EditorWindow.GetWindow(typeof(MecanimStoreWindow), false, "Mecanim Store");
 		window.wantsMouseMove = false;
 		window.Show();
 	}
