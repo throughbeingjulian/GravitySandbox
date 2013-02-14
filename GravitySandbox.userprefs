@@ -1,6 +1,11 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace />
-  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Packages\MixamoAnimationStore\Editor\MixamoStoreWindow.cs">
+    <Files>
+      <File FileName="Assets\Packages\MixamoAnimationStore\Editor\MixamoStoreWindow.cs" Line="5" Column="1" />
+      <File FileName="Assets\Scripts\InvertibleCamera.cs" Line="4" Column="30" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -44,7 +44,8 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Packages\MecanimAnimationStore\Editor\MixamoStoreWindow.cs" />
+     <Compile Include="Assets\Packages\MecanimAnimationStore\Editor\MecanimStoreWindow.cs" />
+     <Compile Include="Assets\Packages\MixamoAnimationStore\Editor\MixamoStoreWindow.cs" />
      <None Include="Assets\Packages\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_BloomAndFlares\BlendOneOne.shader" />
      <None Include="Assets\Packages\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\NoiseEffectShaderRGB.shader" />
      <None Include="Assets\Packages\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_DepthOfField\SeparableWeightedBlurDof34.shader" />
@@ -106,6 +107,9 @@
  </Reference>
  <Reference Include="UnityEditor.Graphs">
  <HintPath>C:\Program Files (x86)\Unity\Editor\Data\Managed\UnityEditor.Graphs.dll</HintPath>
+ </Reference>
+ <Reference Include="unity-mixamo-store-lib">
+ <HintPath>Assets\Packages\MixamoAnimationStore\Editor\unity-mixamo-store-lib.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>

@@ -113,6 +113,9 @@
  <Reference Include="UnityEditor.Graphs">
  <HintPath>C:\Program Files (x86)\Unity\Editor\Data\Managed\UnityEditor.Graphs.dll</HintPath>
  </Reference>
+ <Reference Include="unity-mixamo-store-lib">
+ <HintPath>Assets\Packages\MixamoAnimationStore\Editor\unity-mixamo-store-lib.dll</HintPath>
+ </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp.csproj">
