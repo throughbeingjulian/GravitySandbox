@@ -17,6 +17,31 @@ public class VectorGridGenerator : MonoBehaviour
 	public float dDensity = 10.0f;
 	public bool Distribute = true;
 	public bool ShowDensityField = true;
+	public float multiplier = 1.0f;
+	
+	public float Width
+	{
+		get
+		{
+			return width * multiplier;
+		}
+	}
+	
+	public float Height
+	{
+		get
+		{
+			return height * multiplier;
+		}
+	}
+	
+	public float Depth
+	{
+		get
+		{
+			return depth * multiplier;
+		}
+	}
 	
 	void Start()
 	{
@@ -24,7 +49,7 @@ public class VectorGridGenerator : MonoBehaviour
 	
 	[MenuItem("Tools/Fabric Tech/Add Vector Grid Region")]
 	static void Init()
-	{
+	{		
 		GameObject VectorGrid = GameObject.Find("Vector Grid Universe");
 		if (VectorGrid == null)
 		{
@@ -66,15 +91,15 @@ public class VectorGridGenerator : MonoBehaviour
 		int nodes;
 		if (Distribute == false)
 		{
-			nodes = Mathf.FloorToInt(((height*scale.y/hDensity)+1)*((width*scale.x/wDensity)+1)*((depth*scale.z/dDensity)+1));
+			nodes = Mathf.FloorToInt(((Height*scale.y/hDensity)+1)*((Width*scale.x/wDensity)+1)*((Depth*scale.z/dDensity)+1));
 			//Debug.Log("Objective Spacing Found " + nodes.ToString());
 			vfPositions = new Vector3[nodes];
 			
-			for(float yloc = -(height*scale.y/2); yloc <= (height*scale.y/2); yloc += hDensity)
+			for(float yloc = -(Height*scale.y/2); yloc <= (Height*scale.y/2); yloc += hDensity)
 			{
-				for(float xloc = -(width*scale.x/2); xloc <= (width*scale.x/2); xloc += wDensity)
+				for(float xloc = -(Width*scale.x/2); xloc <= (Width*scale.x/2); xloc += wDensity)
 				{
-					for(float zloc = -(depth*scale.z/2); zloc <= (depth*scale.z/2); zloc += dDensity)
+					for(float zloc = -(Depth*scale.z/2); zloc <= (Depth*scale.z/2); zloc += dDensity)
 					{
 						if (nodecount >= nodes)
 						{
@@ -106,11 +131,11 @@ public class VectorGridGenerator : MonoBehaviour
 			vfPositions = new Vector3[nodes];
 			int iterCount = 0;
 			
-			for(float yloc = -(height/2); yloc <= (height/2); yloc += height/hDensity)
+			for(float yloc = -(Height/2); yloc <= (Height/2); yloc += Height/hDensity)
 			{
-				for(float xloc = -(width/2); xloc <= (width/2); xloc += width/wDensity)
+				for(float xloc = -(Width/2); xloc <= (Width/2); xloc += Width/wDensity)
 				{
-					for(float zloc = -(depth/2); zloc <= (depth/2); zloc += depth/dDensity)
+					for(float zloc = -(Depth/2); zloc <= (Depth/2); zloc += Depth/dDensity)
 					{
 						iterCount += 1;
 						if (nodecount >= nodes)
@@ -150,28 +175,28 @@ public class VectorGridGenerator : MonoBehaviour
 		Gizmos.matrix = transform.localToWorldMatrix;
 		
 		Gizmos.DrawWireCube(new Vector3(0,0,0),
-							new Vector3(width, height, depth));
+							new Vector3(Width, Height, Depth));
 		
 		if (ShowDensityField)
 		{
 			if (Distribute == false)
 			{
 				
-				for(float yloc = -(height*scale.y/2); yloc <= (height*scale.y/2); yloc += hDensity)
+				for(float yloc = -(Height*scale.y/2); yloc <= (Height*scale.y/2); yloc += hDensity)
 				{
-					for(float xloc = -(width*scale.x/2); xloc <= (width*scale.x/2); xloc += wDensity)
+					for(float xloc = -(Width*scale.x/2); xloc <= (Width*scale.x/2); xloc += wDensity)
 					{
-						for(float zloc = -(depth*scale.z/2); zloc <= (depth*scale.z/2); zloc += dDensity)
+						for(float zloc = -(Depth*scale.z/2); zloc <= (Depth*scale.z/2); zloc += dDensity)
 						{
 							// X lines
-							Gizmos.DrawLine(new Vector3((width/2), yloc/scale.y, zloc/scale.z),
-											new Vector3(-(width/2), yloc/scale.y, zloc/scale.z));
+							Gizmos.DrawLine(new Vector3((Width/2), yloc/scale.y, zloc/scale.z),
+											new Vector3(-(Width/2), yloc/scale.y, zloc/scale.z));
 							// Z lines
-							Gizmos.DrawLine(new Vector3(xloc/scale.x, yloc/scale.y, (depth/2)),
-											new Vector3(xloc/scale.x, yloc/scale.y, -(depth/2)));
+							Gizmos.DrawLine(new Vector3(xloc/scale.x, yloc/scale.y, (Depth/2)),
+											new Vector3(xloc/scale.x, yloc/scale.y, -(Depth/2)));
 							// Y lines
-							Gizmos.DrawLine(new Vector3(xloc/scale.x, (height/2), zloc/scale.z),
-											new Vector3(xloc/scale.x, -(height/2), zloc/scale.z));
+							Gizmos.DrawLine(new Vector3(xloc/scale.x, (Height/2), zloc/scale.z),
+											new Vector3(xloc/scale.x, -(Height/2), zloc/scale.z));
 						}
 					}
 					
@@ -179,20 +204,20 @@ public class VectorGridGenerator : MonoBehaviour
 			}
 			else
 			{
-				for(float yloc = -(height/2); yloc <= (height/2); yloc += height/hDensity)
+				for(float yloc = -(Height/2); yloc <= (Height/2); yloc += Height/hDensity)
 				{
-					for(float xloc = -(width/2); xloc <= (width/2); xloc += width/wDensity)
+					for(float xloc = -(Width/2); xloc <= (Width/2); xloc += Width/wDensity)
 					{
-						for(float zloc = -(width/2); zloc <= (width/2); zloc += depth/dDensity)
+						for(float zloc = -(Width/2); zloc <= (Width/2); zloc += Depth/dDensity)
 						{
 							// X lines
-							Gizmos.DrawLine(new Vector3((width/2), yloc, zloc), new Vector3(-(width/2), yloc, zloc));
+							Gizmos.DrawLine(new Vector3((Width/2), yloc, zloc), new Vector3(-(Width/2), yloc, zloc));
 							
 							// Z lines
-							Gizmos.DrawLine(new Vector3(xloc, yloc, (depth/2)), new Vector3(xloc, yloc, -(depth/2)));
+							Gizmos.DrawLine(new Vector3(xloc, yloc, (Depth/2)), new Vector3(xloc, yloc, -(Depth/2)));
 							
 							// Y lines
-							Gizmos.DrawLine(new Vector3(xloc, (height/2), zloc), new Vector3(xloc, -(height/2), zloc));
+							Gizmos.DrawLine(new Vector3(xloc, (Height/2), zloc), new Vector3(xloc, -(Height/2), zloc));
 						}
 					}
 				}

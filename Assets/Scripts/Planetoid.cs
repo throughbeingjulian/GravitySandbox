@@ -4,7 +4,7 @@ using System.Collections;
 public class Planetoid : MonoBehaviour 
 {
 	public Transform coordinateSystem;
-	public int mass;
+	public float mass;
 	
 	// Use this for initialization
 	void Start() 
