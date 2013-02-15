@@ -59,13 +59,17 @@
      <Compile Include="Assets\Packages\Standard Assets\Image Effects (Pro Only)\TwirlEffect.cs" />
      <Compile Include="Assets\Packages\Standard Assets\Image Effects (Pro Only)\VortexEffect.cs" />
      <Compile Include="Assets\Scripts\Actor.cs" />
+     <Compile Include="Assets\Scripts\Debug\DrawArrow.cs" />
      <Compile Include="Assets\Scripts\FollowCameraGalaxy.cs" />
      <Compile Include="Assets\Scripts\GravityMovement.cs" />
      <Compile Include="Assets\Scripts\InvertibleCamera.cs" />
      <Compile Include="Assets\Scripts\Planetoid.cs" />
+     <Compile Include="Assets\Scripts\PlanetoidSingleton.cs" />
      <Compile Include="Assets\Scripts\ThirdPersonCamera.cs" />
-     <Compile Include="Assets\Scripts\Tools\FindMissingScripts.cs" />
-     <Compile Include="Assets\Scripts\Tools\FindMissingScriptsRecursively.cs" />
+     <Compile Include="Assets\Scripts\Tools\LightProbeRegion.cs" />
+     <Compile Include="Assets\Scripts\Tools\VectorForce.cs" />
+     <Compile Include="Assets\Scripts\Tools\VectorForceGroup.cs" />
+     <Compile Include="Assets\Scripts\Tools\VectorGridGenerator.cs" />
      <None Include="Assets\Packages\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_BloomAndFlares\BlendOneOne.shader" />
      <None Include="Assets\Packages\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\NoiseEffectShaderRGB.shader" />
      <None Include="Assets\Packages\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_DepthOfField\SeparableWeightedBlurDof34.shader" />
@@ -75,6 +79,7 @@
      <None Include="Assets\Packages\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\ColorCorrectionCurves.shader" />
      <None Include="Assets\Packages\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_Antialiasing\NFAA.shader" />
      <None Include="Assets\Packages\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_BloomAndFlares\VignetteShader.shader" />
+     <None Include="Assets\Shaders\Debug\ReverseNormals.shader" />
      <None Include="Assets\Packages\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\MotionBlur.shader" />
      <None Include="Assets\Packages\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\GlowCompose.shader" />
      <None Include="Assets\Packages\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\Contrast Stretch\MinMaxReduction.shader" />

@@ -64,7 +64,7 @@ public class Actor : MonoBehaviour
 			this.transform.parent = gravInfluence.coordinateSystem;
 			planetoidRef.parent = gravInfluence.coordinateSystem;
 			
-			this.transform.localPosition = new Vector3(this.transform.localPosition.x, this.transform.localPosition.y, this.planetoidRef.localPosition.z + 0.5f);
+			this.transform.localPosition = new Vector3(this.transform.localPosition.x, this.transform.localPosition.y, this.planetoidRef.localPosition.z);// + 0.5f);
 			
 			// Restore planetoid coordinate system to normal
 			this.transform.parent = null;

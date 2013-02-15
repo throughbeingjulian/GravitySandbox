@@ -46,6 +46,11 @@
   <ItemGroup>
      <Compile Include="Assets\Packages\MecanimAnimationStore\Editor\MecanimStoreWindow.cs" />
      <Compile Include="Assets\Packages\MixamoAnimationStore\Editor\MixamoStoreWindow.cs" />
+     <Compile Include="Assets\Scripts\Editor\FindMissingScripts.cs" />
+     <Compile Include="Assets\Scripts\Editor\FindMissingScriptsRecursively.cs" />
+     <Compile Include="Assets\Scripts\Editor\PlanetoidSingletonEditor.cs" />
+     <Compile Include="Assets\Scripts\Editor\RegionEditor.cs" />
+     <Compile Include="Assets\Scripts\Editor\VectorGridGeneratorEditor.cs" />
      <None Include="Assets\Packages\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_BloomAndFlares\BlendOneOne.shader" />
      <None Include="Assets\Packages\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\NoiseEffectShaderRGB.shader" />
      <None Include="Assets\Packages\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_DepthOfField\SeparableWeightedBlurDof34.shader" />
@@ -55,6 +60,7 @@
      <None Include="Assets\Packages\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\ColorCorrectionCurves.shader" />
      <None Include="Assets\Packages\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_Antialiasing\NFAA.shader" />
      <None Include="Assets\Packages\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_BloomAndFlares\VignetteShader.shader" />
+     <None Include="Assets\Shaders\Debug\ReverseNormals.shader" />
      <None Include="Assets\Packages\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\MotionBlur.shader" />
      <None Include="Assets\Packages\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\GlowCompose.shader" />
      <None Include="Assets\Packages\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\Contrast Stretch\MinMaxReduction.shader" />
@@ -105,11 +111,11 @@
  <Reference Include="Mixamo.UnityStore.Unity4">
  <HintPath>Assets\Packages\MecanimAnimationStore\Editor\Mixamo.UnityStore.Unity4.dll</HintPath>
  </Reference>
- <Reference Include="UnityEditor.Graphs">
- <HintPath>C:\Program Files (x86)\Unity\Editor\Data\Managed\UnityEditor.Graphs.dll</HintPath>
- </Reference>
  <Reference Include="unity-mixamo-store-lib">
  <HintPath>Assets\Packages\MixamoAnimationStore\Editor\unity-mixamo-store-lib.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.Graphs">
+ <HintPath>C:\Program Files (x86)\Unity\Editor\Data\Managed\UnityEditor.Graphs.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>
